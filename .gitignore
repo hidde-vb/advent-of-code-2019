@@ -1,3 +1,6 @@
+# Kotlin
+/out
+
 # Intellij
 .idea/
 *.iml
