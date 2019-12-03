@@ -10,8 +10,6 @@ import kotlin.math.floor
  * -----------
  *
  *  - Make a seperate class for the computer
- *  - Improve loading intCodes
- *  - Tests !
  */
 
 const val EXCEPTED_OUTPUT = 19690720
@@ -75,16 +73,13 @@ fun runComputerWith(input: Array<Int>): Int {
 }
 
 // Instructions
-//   Verbose option in the comments
 
 fun sumInstruction(intCodes: Array<Int>, pointer: Int): Array<Int> {
-    // println("SUM @$pointer, to @${intCodes[pointer+3]}")
     intCodes[intCodes[pointer + 3]] = intCodes[intCodes[pointer + 1]] + intCodes[intCodes[pointer + 2]]
     return intCodes
 }
 
 fun productInstruction(intCodes: Array<Int>, pointer: Int): Array<Int> {
-    // println("PRD @$pointer, to @${intCodes[pointer+3]}")
     intCodes[intCodes[pointer + 3]] = intCodes[intCodes[pointer + 1]] * intCodes[intCodes[pointer + 2]]
     return intCodes
 }
