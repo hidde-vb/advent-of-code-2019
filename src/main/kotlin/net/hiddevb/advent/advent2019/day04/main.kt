@@ -13,15 +13,8 @@ const val INPUT_END = 624574
 fun main() {
     initialize("Day 4: Secure Container", arrayOf())
 
-    println("Part 1: Basic")
     val solution1 = solveBasic()
     println("Solved!\nSolution: $solution1\n")
-
-//    println("Part 2: Advanced")
-//    val solution2 = solveAdvanced()
-//    println("Solved!\nSolution: $solution2\n")
-
-    print(isValidCode(111122))
 }
 
 // Part 1

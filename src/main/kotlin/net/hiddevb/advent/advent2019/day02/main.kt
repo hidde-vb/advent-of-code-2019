@@ -1,5 +1,6 @@
 package net.hiddevb.advent.advent2019.day02
 
+import net.hiddevb.advent.advent2019.intcodeMachine.getDefaultInstructionList
 import net.hiddevb.advent.common.initialize
 import kotlin.math.floor
 
@@ -31,7 +32,7 @@ fun solveBasic(input: String): Int {
     var intCodes = input.split(",").map { it.trim().toInt() }.toTypedArray()
     intCodes = setVerbAndNoun(intCodes, 12, 2)
 
-    return runComputerWith(intCodes)
+    return runComputer(intCodes)
 }
 
 // Part 2
@@ -49,6 +50,26 @@ fun solveAdvanced(input: String): Int {
     }
     println("WARN: no solution found.")
     return 0
+}
+
+fun runComputer(input: Array<Int>): Int {
+    var intCodes = input
+    var pointer = 0
+    val instructions = getDefaultInstructionList()
+    while (true) {
+        intCodes = instructions
+                .find { ins -> ins.optCode == intCodes[pointer] }
+                ?.execute(intCodes, pointer)
+                ?: return intCodes[0]
+
+        val instruction = instructions.find { ins -> ins.optCode == intCodes[pointer] }
+        if (instruction != null) {
+            intCodes = instruction.execute(intCodes, pointer)
+            pointer = instruction.nextInstruction(pointer)
+        } else {
+            return intCodes[0]
+        }
+    }
 }
 
 fun runComputerWith(input: Array<Int>): Int {
