@@ -10,13 +10,20 @@ The solutions are all in vanilla kotlin, so no Gradle or Maven is needed, or any
 
 ## Current Status
 
-| Nr | Solved |
+| Day | Solved |
 | --------- | ------ |
 | 1 | ⭐⭐ |
-| 2 |  |
-| 3 |  |
-| 4 |  |
+| 2 | ⭐⭐ |
+| 3 | ⭐⭐ |
+| 4 | ⭐⭐ |
 | 5 |  |
+| 6 | ⭐⭐ |
+| 7 |  |
+| 8 |  |
+| 9 |  |
+| 10 |  |
+
+
 
 
 
