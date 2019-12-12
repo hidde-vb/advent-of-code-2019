@@ -19,14 +19,11 @@ The solutions are all in vanilla kotlin, so no Gradle or Maven is needed, or any
 | 5 |  |
 | 6 | ⭐⭐ |
 | 7 |  |
-| 8 |  |
+| 8 | ⭐⭐|
 | 9 |  |
 | 10 |  |
 
-
-
-
-
+Yes, the intCode computer is broken ~
 
 ### License
 

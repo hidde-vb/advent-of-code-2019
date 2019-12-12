@@ -1,8 +1,6 @@
 package net.hiddevb.advent.advent2019.day08
 
 import net.hiddevb.advent.common.initialize
-import java.util.*
-import java.util.Collections.min
 
 /**
  * --- Day 8: Space Image Format ---
@@ -18,9 +16,9 @@ fun main() {
     val solution1 = solveBasic(fileStrings[0])
     println("Solved!\nSolution: $solution1\n")
 
-//    println("Part 2: Advanced")
-//    val solution2 = solveAdvanced(fileStrings[0])
-//    println("Solved!\nSolution: $solution2\n")
+    println("Part 2: Advanced")
+    val solution2 = solveAdvanced(fileStrings[0])
+    println("Solved!\nSolution:\n$solution2\n")
 }
 
 // Part 1
@@ -32,6 +30,33 @@ fun solveBasic(input: String): Int {
 private fun getLeastcorruptedLayer(chunks: List<String>): String = chunks.minBy { it.count { l -> "0".contains(l) } }!!
 
 // Part 2
-fun solveAdvanced(input: String): Int {
-    return 0
+fun solveAdvanced(input: String): String {
+    val layers = input.chunked(WIDTH * HEIGHT)
+    val mergedLayer = layers.last().toCharArray()
+
+    for (l in layers.size - 1 downTo 0) {
+        for (c in 0 until mergedLayer.size) {
+            when (layers[l][c]) {
+                '0' -> mergedLayer[c] = '0'
+                '1' -> mergedLayer[c] = '1'
+            }
+        }
+    }
+    return render(mergedLayer)
 }
+
+private fun render(layer: CharArray): String {
+    var render = ""
+    for(i in 0 until layer.size) {
+        when (layer[i]) {
+            '0' -> render = "$render "
+            '1' -> render = "$render#"
+            '2' -> render = "$render "
+        }
+        if ((1+i) % WIDTH == 0) {
+            render = "$render\n"
+        }
+    }
+    return render
+}
+
